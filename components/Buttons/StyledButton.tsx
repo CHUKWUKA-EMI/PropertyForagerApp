@@ -5,6 +5,7 @@ export interface StyledButtonProps extends ButtonProps {}
 
 const StyledButton = styled(Button)<StyledButtonProps>(({ theme }) => ({
   letterSpacing: "2px",
+  fontWeight: "bold",
 }));
 
 export default StyledButton;
