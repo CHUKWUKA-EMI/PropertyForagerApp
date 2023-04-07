@@ -8,7 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import React, { FC } from "react";
-import PrimaryButton from "./Buttons/PrimaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
 
 const MobileDrawer: FC<IMobileDrawerProps> = ({
   authNavItems,

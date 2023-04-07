@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import React, { FC, useState } from "react";
-import PrimaryButton from "./Buttons/PrimaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import Logo from "./Logo";
 import { Avatar } from "@mui/material";
 
@@ -22,7 +22,7 @@ const NavBar: FC<INavBarProps> = ({
   return (
     <AppBar
       position="fixed"
-      sx={{ py: 1, backgroundColor: "white" }}
+      sx={{ py: 1, backgroundColor: "white", px: 3 }}
       elevation={1}
       component="nav"
     >

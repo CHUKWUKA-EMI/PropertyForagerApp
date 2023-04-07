@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Head from "next/head";
 import MobileDrawer from "./MobileDrawer";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const drawerWidth = 240;
 const navItems = [
@@ -43,7 +44,7 @@ export default function Layout({ children, pageTitle }: IProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box>
+      <Box sx={{ height: "fit-content" }}>
         <CssBaseline />
 
         <NavBar
@@ -61,10 +62,11 @@ export default function Layout({ children, pageTitle }: IProps) {
           authNavItems={authNavItems}
           drawerWidth={drawerWidth}
         />
-        <Box component="main" sx={{ p: 3 }}>
+        <Box component="main">
           <Toolbar />
           {children}
         </Box>
+        <Footer navItems={navItems} />
       </Box>
     </>
   );

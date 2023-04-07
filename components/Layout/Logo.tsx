@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../public/PropertyForager.jpeg";
+import logo from "../../public/PropertyForager.jpeg";
 import { Box, Typography } from "@mui/material";
-import CustomLinkComponent from "./CustomLinkComponent";
+import CustomLinkComponent from "../CustomLinkComponent";
 import Image from "next/image";
 import { theme } from "@/styles/theme";
 
@@ -24,9 +24,12 @@ const Logo = () => {
           fontWeight={900}
           color={theme.palette.primary.main}
           component="span"
-          sx={{ fontSize: { xs: "12px", sm: "15px" } }}
+          sx={{
+            fontSize: { xs: "12px", sm: "14px" },
+            fontFamily: "sans-serif",
+          }}
         >
-          FORAGER
+          Property Forager
         </Typography>
       </CustomLinkComponent>
     </Box>
