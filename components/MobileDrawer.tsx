@@ -1,5 +1,4 @@
 import { theme } from "@/styles/theme";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
@@ -10,22 +9,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import React, { FC } from "react";
 import PrimaryButton from "./Buttons/PrimaryButton";
-import Divider from "@mui/material/Divider";
 
-type NavItem = {
-  name: string;
-  href: string;
-};
-interface IProps {
-  handleDrawerToggle: () => void;
-  navItems: Array<NavItem>;
-  authNavItems: Array<NavItem>;
-  drawerWidth: number;
-  mobileOpen: boolean;
-  navButtonTextColor: string;
-}
-
-const MobileDrawer: FC<IProps> = ({
+const MobileDrawer: FC<IMobileDrawerProps> = ({
   authNavItems,
   drawerWidth,
   handleDrawerToggle,
@@ -34,9 +19,15 @@ const MobileDrawer: FC<IProps> = ({
   navButtonTextColor,
 }) => {
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Avatar sx={{ my: 2, height: "6rem", width: "6rem", mx: "auto" }} />
-      <Divider />
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "inherit",
+        py: 4,
+      }}
+    >
       <List>
         {navItems.map((item, i) => (
           <ListItem key={i} disablePadding>
@@ -46,12 +37,12 @@ const MobileDrawer: FC<IProps> = ({
           </ListItem>
         ))}
       </List>
-      <Divider />
+
       <Box
-        paddingTop={3}
         display="flex"
         alignItems="center"
-        flexDirection="column"
+        flexDirection="column-reverse"
+        padding={2}
         gap={2}
       >
         {authNavItems.map((link, i) =>
@@ -64,7 +55,6 @@ const MobileDrawer: FC<IProps> = ({
                 color: navButtonTextColor,
                 textTransform: "none",
                 backgroundColor: "rgba(64,87,109,.07)",
-                width: "5rem",
                 px: "0.5rem",
                 ":hover": {
                   backgroundColor: theme.palette.secondary.main,
@@ -83,7 +73,7 @@ const MobileDrawer: FC<IProps> = ({
           ) : (
             <PrimaryButton
               fullWidth
-              sx={{ textTransform: "none", width: "5rem", px: "0.5rem" }}
+              sx={{ textTransform: "none", px: "0.5rem" }}
               disableElevation
               variant="contained"
               key={i}
@@ -112,10 +102,13 @@ const MobileDrawer: FC<IProps> = ({
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", md: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: drawerWidth,
+            width: { xs: drawerWidth, sm: 300 },
+          },
+          "& .MuiBox-root": {
+            height: "100%",
           },
         }}
       >
