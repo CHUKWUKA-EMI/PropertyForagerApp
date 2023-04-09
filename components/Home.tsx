@@ -30,7 +30,7 @@ const Home = () => {
         justifyContent="space-between"
         alignItems="center"
         spacing={4}
-        px={3}
+        px={5}
       >
         <Grid item xs={12} md={6}>
           <Box>

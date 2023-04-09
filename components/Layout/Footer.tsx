@@ -33,7 +33,12 @@ const Footer: FC<Props> = ({ navItems }) => {
       }}
       component="footer"
     >
-      <Grid justifyContent="space-between" spacing={4} container>
+      <Grid
+        sx={{ width: "100%" }}
+        justifyContent="space-between"
+        spacing={6}
+        container
+      >
         <Grid item xs={12} sm={6} md={3}>
           <Logo />
         </Grid>
