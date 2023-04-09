@@ -1,4 +1,6 @@
-interface IAgency extends BaseType {
+import { IProperty } from "./property";
+
+export interface IAgency extends BaseType {
   id: string;
   agencyName?: string;
   properties: IProperty[];

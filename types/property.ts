@@ -1,3 +1,5 @@
+import { IAgency } from "./agency";
+
 export enum PropertyStatus {
   Published,
   Draft,
