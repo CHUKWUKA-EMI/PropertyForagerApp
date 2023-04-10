@@ -6,7 +6,7 @@ import "@fontsource/roboto/700.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { theme } from "../styles/theme";
-import { ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

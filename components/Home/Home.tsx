@@ -1,11 +1,11 @@
+import React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import React from "react";
 import Search from "./Search";
 import Image from "next/image";
-import sampleProperty from "../public/prop.jpeg";
+import sampleProperty from "../../public/prop.jpeg";
 import LatestProperties from "./LatestProperties";
 
 const StyledImage = styled(Image)(({ theme }) => ({

@@ -8,8 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
 import React, { FC } from "react";
 import { Divider } from "@mui/material";
-import logoImage from "../../public/PropertyForager.jpeg";
-import Image from "next/image";
 import Logo from "./Logo";
 
 type Props = {

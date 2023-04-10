@@ -6,6 +6,8 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import LocationIcon from "@mui/icons-material/LocationOnOutlined";
+import BedroomIcon from "@mui/icons-material/BedroomParentOutlined";
+import BathroomIcon from "@mui/icons-material/BathroomOutlined";
 import { PropertyOverview, PropertyPriceType } from "@/types/property";
 
 const PropertyDisplayCard: FC<PropertyOverview> = (props) => {
@@ -69,44 +71,89 @@ const PropertyDisplayCard: FC<PropertyOverview> = (props) => {
         <Stack
           my={2}
           justifyContent="space-between"
+          alignItems="center"
           spacing={2}
           sx={{
             border: `3px solid ${theme.palette.grey[300]}`,
             borderRadius: "5px",
             padding: "10px",
+            // flexDirection: { xs: "column", sm: "row" },
           }}
           direction="row"
           divider={<Divider orientation="vertical" flexItem />}
         >
-          <Typography display="flex" flexDirection="column" alignItems="center">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "row", sm: "column" },
+              // flexDirection: "column",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
             <Typography
               color={theme.palette.grey[800]}
               fontWeight={500}
               variant="body1"
-              component="span"
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
             >
               Bedrooms
             </Typography>
-            <Typography fontWeight={700} variant="body1" component="strong">
+            <BedroomIcon
+              fontSize="large"
+              sx={{
+                display: { xs: "block", sm: "none" },
+                color: theme.palette.grey[700],
+              }}
+            />
+            <Typography
+              fontSize="1rem"
+              fontWeight={700}
+              variant="body1"
+              component="strong"
+            >
               {props.numberOfBedrooms}
             </Typography>
-          </Typography>
-          <Typography display="flex" flexDirection="column" alignItems="center">
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "row", sm: "column" },
+              // flexDirection: "column",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
             <Typography
               color={theme.palette.grey[800]}
               fontWeight={500}
               variant="body1"
-              component="span"
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
             >
               Bathrooms
             </Typography>
-            <Typography fontWeight={700} variant="body1" component="strong">
+            <BathroomIcon
+              fontSize="large"
+              sx={{
+                display: { xs: "block", sm: "none" },
+                color: theme.palette.grey[700],
+              }}
+            />
+            <Typography
+              fontSize="1rem"
+              fontWeight={700}
+              variant="body1"
+              component="strong"
+            >
               {props.numberOfBathrooms}
             </Typography>
-          </Typography>
-          <Typography
+          </Box>
+          <Box
             sx={{
               display: !props.totalLandArea ? "none" : "flex",
+              // flexDirection: { xs: "row", sm: "column" },
               flexDirection: "column",
               alignItems: "center",
             }}
@@ -116,13 +163,19 @@ const PropertyDisplayCard: FC<PropertyOverview> = (props) => {
               fontWeight={500}
               variant="body1"
               component="span"
+              sx={{ display: { xs: "none", sm: "block" } }}
             >
               Total Space
             </Typography>
-            <Typography fontWeight={700} variant="body1" component="strong">
-              {props.totalLandArea} Sq Ft
+            <Typography
+              fontSize="1rem"
+              fontWeight={700}
+              variant="body1"
+              component="strong"
+            >
+              {props.totalLandArea} ft<sup>2</sup>
             </Typography>
-          </Typography>
+          </Box>
         </Stack>
         <Typography gap={1} display="flex" alignItems="center" mt={1}>
           <LocationIcon color="primary" />{" "}

@@ -6,6 +6,7 @@ import Head from "next/head";
 import MobileDrawer from "./MobileDrawer";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { useRouter } from "next/router";
 
 const drawerWidth = 240;
 const navItems = [
@@ -27,6 +28,8 @@ interface IProps extends React.PropsWithChildren {
 }
 
 export default function Layout({ children, pageTitle }: IProps) {
+  const router = useRouter();
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -63,10 +66,13 @@ export default function Layout({ children, pageTitle }: IProps) {
           drawerWidth={drawerWidth}
         />
         <Box component="main">
-          <Toolbar />
+          <Toolbar sx={{ height: "6rem" }} />
           {children}
         </Box>
-        <Footer navItems={navItems} />
+
+        {router.pathname !== "/login" && router.pathname !== "/signup" && (
+          <Footer navItems={navItems} />
+        )}
       </Box>
     </>
   );

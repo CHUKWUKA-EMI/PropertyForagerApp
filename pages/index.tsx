@@ -1,13 +1,10 @@
 import Layout from "@/components/Layout/Layout";
-import { Container } from "@mui/material";
-import HomeComponent from "@/components/Home";
+import HomeComponent from "@/components/Home/Home";
 
 export default function Home() {
   return (
     <Layout pageTitle="Home">
-      {/* <Container maxWidth="xl"> */}
       <HomeComponent />
-      {/* </Container> */}
     </Layout>
   );
 }

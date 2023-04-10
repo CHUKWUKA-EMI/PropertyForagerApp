@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import InputBase from "@mui/material/InputBase";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import PrimaryButton from "./Buttons/PrimaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
 
 const StyledSearchInput = styled(InputBase)(({ theme }) => ({
   width: "100%",

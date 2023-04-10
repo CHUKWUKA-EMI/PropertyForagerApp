@@ -2,9 +2,10 @@ import React, { FC } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import SecondaryButton from "./Buttons/SecondaryButton";
 import PropertyDisplayCard from "./PropertyDisplayCard";
 import { PropertyPriceType, LatestProperties } from "@/types/property";
+import PrimaryButton from "../Buttons/PrimaryButton";
+import { useTheme } from "@mui/material/styles";
 
 const latestProperties: LatestProperties = {
   properties: [
@@ -83,8 +84,10 @@ const latestProperties: LatestProperties = {
   ],
 };
 const LatestProperties: FC = () => {
+  const theme = useTheme();
+
   return (
-    <Box mt={2} sx={{ py: 2, px: 6 }}>
+    <Box mt={2} sx={{ py: 2, px: { xs: 2, sm: 6 } }}>
       <Box
         sx={{ flexDirection: { xs: "column", md: "row" } }}
         display="flex"
@@ -113,9 +116,18 @@ const LatestProperties: FC = () => {
           </Typography>
         </Box>
 
-        <SecondaryButton disableElevation variant="contained">
+        <PrimaryButton
+          sx={{
+            ":hover": {
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.common.white,
+            },
+          }}
+          disableElevation
+          variant="outlined"
+        >
           View All Properties
-        </SecondaryButton>
+        </PrimaryButton>
       </Box>
       <Grid mt={2} spacing={4} container>
         {latestProperties.properties.map((p) => (
