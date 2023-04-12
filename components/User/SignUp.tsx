@@ -346,7 +346,7 @@ const SignUp: FC<IProps> = ({ openSignupForm = false, handleClose }) => {
                 isRegistering
               }
             >
-              {`${isRegistering ? <CircularProgress /> : "Register"}`}
+              {isRegistering ? <CircularProgress /> : "Register"}
             </PrimaryButton>
           ) : (
             <Button
