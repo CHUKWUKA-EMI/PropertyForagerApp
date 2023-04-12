@@ -121,7 +121,9 @@ const LatestProperties: FC = () => {
             ":hover": {
               backgroundColor: theme.palette.primary.main,
               color: theme.palette.common.white,
+              border: "none",
             },
+            border: `2px solid ${theme.palette.primary.main}`,
           }}
           disableElevation
           variant="outlined"

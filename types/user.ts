@@ -15,3 +15,11 @@ export interface IUserRegistrationRequest {
   agencyName?: string;
   roleType: RoleType;
 }
+
+export interface IAuthenticateResponse {
+  id: string;
+  email: string;
+  userName: string;
+  token: string;
+  roles: string[];
+}

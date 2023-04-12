@@ -1,11 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import logo from "../../public/PropertyForager.jpeg";
 import { Box, Typography } from "@mui/material";
 import CustomLinkComponent from "../CustomLinkComponent";
 import Image from "next/image";
 import { theme } from "@/styles/theme";
 
-const Logo = () => {
+interface IProps {
+  align?: string;
+}
+const Logo: FC<IProps> = ({ align = "center" }) => {
   return (
     <Box fontWeight="bold" component="div" sx={{ flexGrow: 1 }}>
       <CustomLinkComponent
@@ -14,7 +17,7 @@ const Logo = () => {
           textDecoration: "none",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: align,
           justifyContent: "center",
         }}
         href="/"

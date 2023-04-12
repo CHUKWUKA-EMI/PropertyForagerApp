@@ -1,0 +1,1 @@
+export const FORAGER_AUTH_DATA = "FORAGER_AUTH_DATA";

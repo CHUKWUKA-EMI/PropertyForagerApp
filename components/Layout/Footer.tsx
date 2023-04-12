@@ -7,7 +7,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
 import React, { FC } from "react";
-import { Divider } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Divider, useMediaQuery } from "@mui/material";
 import Logo from "./Logo";
 
 type Props = {
@@ -21,10 +22,13 @@ const socialLinks = [
 ];
 
 const Footer: FC<Props> = ({ navItems }) => {
+  const theme = useTheme();
+  const mobileView = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
         py: 3,
+        // px: 3,
         mb: 0,
         mt: 2,
         borderTop: "1px solid grey",
@@ -32,13 +36,25 @@ const Footer: FC<Props> = ({ navItems }) => {
       component="footer"
     >
       <Grid
-        sx={{ width: "100%" }}
+        sx={{ width: "95%" }}
         justifyContent="space-between"
-        spacing={6}
+        spacing={2}
+        mx="auto"
         container
       >
-        <Grid item xs={12} sm={6} md={3}>
-          <Logo />
+        <Grid
+          sx={{ textAlign: { xs: "center", md: "left" } }}
+          item
+          xs={12}
+          sm={6}
+          md={3}
+        >
+          <Logo align={mobileView ? "center" : "left"} />
+          <Typography mt={1} fontWeight={400}>
+            We are here to help you find your dream home. It&apos;s our
+            specialty.
+            <br />
+          </Typography>
         </Grid>
         <Grid
           sx={{ textAlign: { xs: "center", md: "left" } }}
