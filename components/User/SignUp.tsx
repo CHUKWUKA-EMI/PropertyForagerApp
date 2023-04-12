@@ -13,6 +13,7 @@ import FormLabel from "@mui/material/FormLabel";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useTheme } from "@mui/material/styles";
 import { IUserRegistrationRequest, RoleType } from "@/types/user";
 import Link from "next/link";
@@ -341,10 +342,11 @@ const SignUp: FC<IProps> = ({ openSignupForm = false, handleClose }) => {
                 (signupState.roleType == RoleType.Agency &&
                   (!Boolean(signupState.agencyCity) ||
                     !Boolean(signupState.agencyName) ||
-                    !Boolean(signupState.agencyState)))
+                    !Boolean(signupState.agencyState))) ||
+                isRegistering
               }
             >
-              {`${isRegistering ? "..." : "Register"}`}
+              {`${isRegistering ? <CircularProgress /> : "Register"}`}
             </PrimaryButton>
           ) : (
             <Button
